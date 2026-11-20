@@ -148,14 +148,4 @@ Os slides mostram a ESP32 do controle dentro da caixa de MDF, com o joystick por
 Está funcionando? Compartilhe: este guia é um rascunho melhorado e quer ser melhorado de novo.
 
 ---
-
-## Pontos que ficam para você confirmar
-
-| Ponto | Situação |
-|---|---|
-| Nomes oficiais das peças de MDF e número de parafusos | CONFIRME NO SEU KIT |
-| Como o ESP32 do carro é alimentado | INFORMAÇÃO NÃO CONFIRMADA (manual, seção 7.3) |
-| Jumpers de ENA e ENB no L298N | CONFIRME NA SUA MONTAGEM |
-| Motor direito e esquerdo, vistos por trás | CONFIRME NA SUA MONTAGEM |
-| Alimentação do controle | CONFIRME NO SEU KIT |
-| Tipo e tensão das baterias | CONFIRME NO SEU KIT |
+Tio Rafa
