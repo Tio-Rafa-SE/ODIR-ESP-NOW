@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 660" role="img" aria-labelledby="t d">
+  <title id="t">Ligação do controle com 2 joysticks</title>
+  <desc id="d">Joystick A (frente e trás): VRy no GPIO33. Joystick B (esquerda e direita): VRx no GPIO32. O botão SW de um dos joysticks vai no GPIO25. Os dois joysticks são alimentados pelo 3V3 e dividem o GND. Eixos não usados ficam sem ligação.</desc>
+  <style>
+    text { font-family: "Helvetica Neue", Arial, sans-serif; fill: #0f172a; }
+    .titulo { font-size: 18px; font-weight: 700; text-anchor: middle; }
+    .pino { font-size: 14px; font-weight: 700; }
+    .peq { font-size: 12.5px; fill: #475569; }
+    .placa { fill: #ecfdf5; stroke: #0f766e; stroke-width: 2.5; }
+    .joyA { fill: #eff6ff; stroke: #1d4ed8; stroke-width: 2.5; }
+    .joyB { fill: #fdf4ff; stroke: #a21caf; stroke-width: 2.5; }
+    .pbox { fill: #ffffff; stroke: #475569; stroke-width: 1.5; }
+    .livre { fill: #f1f5f9; stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 5 4; }
+    .vcc { stroke: #dc2626; stroke-width: 3.5; fill: none; }
+    .gnd { stroke: #111827; stroke-width: 3.5; fill: none; }
+    .eixoy { stroke: #0f766e; stroke-width: 3.5; fill: none; }
+    .eixox { stroke: #d97706; stroke-width: 3.5; fill: none; }
+    .sw { stroke: #7c3aed; stroke-width: 3.5; fill: none; }
+    .nota { fill: #fffbeb; stroke: #b45309; stroke-width: 1.5; }
+    .alerta { fill: #fef2f2; stroke: #b91c1c; stroke-width: 2; }
+  </style>
+  <rect width="980" height="660" fill="#f8fafc"/>
+
+  <!-- ESP32 (centro) -->
+  <rect class="placa" x="360" y="40" width="260" height="360" rx="14"/>
+  <text class="titulo" x="490" y="72">ESP32 - CONTROLE</text>
+  <rect class="pbox" x="360" y="100" width="110" height="34" rx="5"/><text class="pino" x="372" y="123">3V3</text>
+  <rect class="pbox" x="360" y="150" width="110" height="34" rx="5"/><text class="pino" x="372" y="173">GND</text>
+  <rect class="pbox" x="360" y="200" width="110" height="34" rx="5"/><text class="pino" x="372" y="223">GPIO33</text>
+  <rect class="pbox" x="510" y="200" width="110" height="34" rx="5"/><text class="pino" x="522" y="223">GPIO32</text>
+  <rect class="pbox" x="510" y="250" width="110" height="34" rx="5"/><text class="pino" x="522" y="273">GPIO25</text>
+  <text class="peq" x="372" y="258">acelerador</text>
+  <text class="peq" x="522" y="308">direção: X do joystick B</text>
+  <text class="peq" x="522" y="326">botão: troca de modo</text>
+
+  <!-- Joystick A (esquerda) -->
+  <rect class="joyA" x="30" y="40" width="250" height="360" rx="14"/>
+  <text class="titulo" x="155" y="72">Joystick A</text>
+  <text class="peq" x="155" y="90" text-anchor="middle">frente e trás (acelerador)</text>
+  <rect class="pbox" x="170" y="100" width="110" height="34" rx="5"/><text class="pino" x="182" y="123">+5V</text>
+  <rect class="pbox" x="170" y="150" width="110" height="34" rx="5"/><text class="pino" x="182" y="173">GND</text>
+  <rect class="livre" x="170" y="200" width="110" height="34" rx="5"/><text class="pino" x="182" y="223" opacity="0.6">VRx</text>
+  <rect class="pbox" x="170" y="250" width="110" height="34" rx="5"/><text class="pino" x="182" y="273">VRy</text>
+  <rect class="livre" x="170" y="300" width="110" height="34" rx="5"/><text class="pino" x="182" y="323" opacity="0.6">SW</text>
+  <text class="peq" x="42" y="223">sem ligação</text>
+  <text class="peq" x="42" y="323">sem ligação</text>
+
+  <!-- Joystick B (direita) -->
+  <rect class="joyB" x="700" y="40" width="250" height="360" rx="14"/>
+  <text class="titulo" x="825" y="72">Joystick B</text>
+  <text class="peq" x="825" y="90" text-anchor="middle">esquerda e direita (direção)</text>
+  <rect class="pbox" x="700" y="100" width="110" height="34" rx="5"/><text class="pino" x="712" y="123">+5V</text>
+  <rect class="pbox" x="700" y="150" width="110" height="34" rx="5"/><text class="pino" x="712" y="173">GND</text>
+  <rect class="pbox" x="700" y="200" width="110" height="34" rx="5"/><text class="pino" x="712" y="223">VRx</text>
+  <rect class="livre" x="700" y="250" width="110" height="34" rx="5"/><text class="pino" x="712" y="273" opacity="0.6">VRy</text>
+  <rect class="pbox" x="700" y="300" width="110" height="34" rx="5"/><text class="pino" x="712" y="323">SW</text>
+  <text class="peq" x="822" y="273">sem ligação</text>
+  <text class="peq" x="822" y="123">(ligar no 3V3!)</text>
+  <text class="peq" x="292" y="123">(ligar no 3V3!)</text>
+
+  <!-- Fios A -->
+  <path class="vcc" d="M280,117 L360,117"/>
+  <path class="gnd" d="M280,167 L360,167"/>
+  <path class="eixoy" d="M280,267 L320,267 L320,217 L360,217"/>
+  <!-- Fios B -->
+  <path class="vcc" d="M700,117 L650,117 L650,80 L420,80 L420,100"/>
+  <path class="gnd" d="M700,167 L660,167 L660,360 L440,360 L440,184"/>
+  <path class="eixox" d="M700,217 L620,217"/>
+  <path class="sw" d="M700,317 L670,317 L670,267 L620,267"/>
+
+  <!-- Notas -->
+  <rect class="alerta" x="30" y="430" width="430" height="200" rx="10"/>
+  <text class="pino" x="44" y="456">Atenção: 3V3, não 5V</text>
+  <text class="peq" x="44" y="478">Os dois módulos vêm marcados com "+5V", mas aqui ficam no 3V3.</text>
+  <text class="peq" x="44" y="496">Com 5V, o eixo pode passar de 3,3 V no pino do ESP32 e danificar a placa.</text>
+  <text class="pino" x="44" y="528">Eixo sem ligação e fio solto</text>
+  <text class="peq" x="44" y="550">Os eixos marcados "sem ligação" não são lidos pelo código: deixe-os soltos.</text>
+  <text class="peq" x="44" y="568">Mas GPIO33 e GPIO32 NUNCA podem ficar no ar: um pino analógico solto</text>
+  <text class="peq" x="44" y="586">lê valores aleatórios. Se um jumper sair do lugar, o Passo 2 mostra ALERTA.</text>
+  <text class="peq" x="44" y="610">O centro é medido ao ligar: não toque nos joysticks nesse momento.</text>
+  <rect class="nota" x="490" y="430" width="460" height="200" rx="10"/>
+  <text class="pino" x="504" y="456">Resumo (2 joysticks)</text>
+  <text class="peq" x="504" y="478">Joystick A, VRy  -> GPIO33   (frente e trás)</text>
+  <text class="peq" x="504" y="496">Joystick B, VRx  -> GPIO32   (esquerda e direita)</text>
+  <text class="peq" x="504" y="514">SW de UM joystick (o B, na figura) -> GPIO25   (troca de modo)</text>
+  <text class="peq" x="504" y="538">Os dois +5V no 3V3; os dois GND no GND.</text>
+  <text class="peq" x="504" y="562">Mesmo firmware da versão com 1 joystick. Só a fiação muda.</text>
+  <text class="peq" x="504" y="586">Monte o A com o eixo VRy ao longo do robô e o B com o VRx</text>
+  <text class="peq" x="504" y="604">atravessado: depois confira os sinais no Passo 2.</text>
+</svg>

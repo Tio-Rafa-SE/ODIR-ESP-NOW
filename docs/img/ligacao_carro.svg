@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 640" role="img" aria-labelledby="t d">
+  <title id="t">Ligação do carro: ESP32, L298N e motores</title>
+  <desc id="d">GPIO16 e GPIO17 vão em IN1 e IN2 (motor direito, saídas OUT1 e OUT2). GPIO18 e GPIO19 vão em IN3 e IN4 (motor esquerdo, saídas OUT3 e OUT4). O GND do ESP32 e o do L298N são comuns. A bateria entra no L298N.</desc>
+  <style>
+    text { font-family: "Helvetica Neue", Arial, sans-serif; fill: #0f172a; }
+    .titulo { font-size: 18px; font-weight: 700; text-anchor: middle; }
+    .pino { font-size: 14px; font-weight: 700; }
+    .peq { font-size: 12.5px; fill: #475569; }
+    .placa { fill: #ecfdf5; stroke: #0f766e; stroke-width: 2.5; }
+    .ponte { fill: #fef2f2; stroke: #b91c1c; stroke-width: 2.5; }
+    .motor { fill: #fffbeb; stroke: #b45309; stroke-width: 2.5; }
+    .bat { fill: #f1f5f9; stroke: #334155; stroke-width: 2.5; }
+    .pbox { fill: #ffffff; stroke: #475569; stroke-width: 1.5; }
+    .s1 { stroke: #0f766e; stroke-width: 3; fill: none; }
+    .s2 { stroke: #1d4ed8; stroke-width: 3; fill: none; }
+    .s3 { stroke: #d97706; stroke-width: 3; fill: none; }
+    .s4 { stroke: #7c3aed; stroke-width: 3; fill: none; }
+    .gnd { stroke: #111827; stroke-width: 3.5; fill: none; }
+    .vcc { stroke: #dc2626; stroke-width: 3.5; fill: none; }
+    .mot { stroke: #92400e; stroke-width: 3; fill: none; }
+    .nota { fill: #fffbeb; stroke: #b45309; stroke-width: 1.5; }
+  </style>
+  <rect width="980" height="640" fill="#f8fafc"/>
+
+  <!-- ESP32 -->
+  <rect class="placa" x="30" y="30" width="230" height="340" rx="14"/>
+  <text class="titulo" x="145" y="62">ESP32 (DevKit) - CARRO</text>
+  <rect class="pbox" x="150" y="90" width="110" height="34" rx="5"/><text class="pino" x="160" y="113">GPIO16</text>
+  <rect class="pbox" x="150" y="135" width="110" height="34" rx="5"/><text class="pino" x="160" y="158">GPIO17</text>
+  <rect class="pbox" x="150" y="180" width="110" height="34" rx="5"/><text class="pino" x="160" y="203">GPIO18</text>
+  <rect class="pbox" x="150" y="225" width="110" height="34" rx="5"/><text class="pino" x="160" y="248">GPIO19</text>
+  <rect class="pbox" x="150" y="290" width="110" height="34" rx="5"/><text class="pino" x="160" y="313">GND</text>
+  <text class="peq" x="40" y="113">motor DIR</text>
+  <text class="peq" x="40" y="158">motor DIR</text>
+  <text class="peq" x="40" y="203">motor ESQ</text>
+  <text class="peq" x="40" y="248">motor ESQ</text>
+  <text class="peq" x="40" y="350">alimentação: veja a seção 7.3 do manual</text>
+
+  <!-- L298N -->
+  <rect class="ponte" x="440" y="30" width="230" height="420" rx="14"/>
+  <text class="titulo" x="555" y="62">L298N</text>
+  <rect class="pbox" x="440" y="90" width="90" height="34" rx="5"/><text class="pino" x="452" y="113">IN1</text>
+  <rect class="pbox" x="440" y="135" width="90" height="34" rx="5"/><text class="pino" x="452" y="158">IN2</text>
+  <rect class="pbox" x="440" y="180" width="90" height="34" rx="5"/><text class="pino" x="452" y="203">IN3</text>
+  <rect class="pbox" x="440" y="225" width="90" height="34" rx="5"/><text class="pino" x="452" y="248">IN4</text>
+  <rect class="pbox" x="440" y="290" width="90" height="34" rx="5"/><text class="pino" x="452" y="313">GND</text>
+  <rect class="pbox" x="440" y="345" width="90" height="34" rx="5"/><text class="pino" x="452" y="368">+12V</text>
+  <text class="peq" x="540" y="396">entrada da</text><text class="peq" x="540" y="412">bateria</text>
+  <text class="peq" x="540" y="428">ENA e ENB:</text><text class="peq" x="540" y="443">jumpers instalados</text>
+  <rect class="pbox" x="580" y="90" width="90" height="34" rx="5"/><text class="pino" x="592" y="113">OUT1</text>
+  <rect class="pbox" x="580" y="135" width="90" height="34" rx="5"/><text class="pino" x="592" y="158">OUT2</text>
+  <rect class="pbox" x="580" y="180" width="90" height="34" rx="5"/><text class="pino" x="592" y="203">OUT3</text>
+  <rect class="pbox" x="580" y="225" width="90" height="34" rx="5"/><text class="pino" x="592" y="248">OUT4</text>
+
+  <!-- Sinais ESP -> L298N -->
+  <path class="s1" d="M260,107 L440,107"/>
+  <path class="s2" d="M260,152 L440,152"/>
+  <path class="s3" d="M260,197 L440,197"/>
+  <path class="s4" d="M260,242 L440,242"/>
+  <path class="gnd" d="M260,307 L440,307"/>
+  <text class="peq" x="350" y="293" text-anchor="middle">GND comum (obrigatório)</text>
+
+  <!-- Motores -->
+  <rect class="motor" x="800" y="90" width="150" height="79" rx="10"/>
+  <text class="pino" x="875" y="124" text-anchor="middle">Motor DIREITO</text>
+  <text class="peq" x="875" y="146" text-anchor="middle">OUT1 e OUT2</text>
+  <rect class="motor" x="800" y="180" width="150" height="79" rx="10"/>
+  <text class="pino" x="875" y="214" text-anchor="middle">Motor ESQUERDO</text>
+  <text class="peq" x="875" y="236" text-anchor="middle">OUT3 e OUT4</text>
+  <path class="mot" d="M670,107 L800,107"/>
+  <path class="mot" d="M670,152 L800,152"/>
+  <path class="mot" d="M670,197 L800,197"/>
+  <path class="mot" d="M670,242 L800,242"/>
+  <text class="peq" x="875" y="290" text-anchor="middle">Direita e esquerda: vistas</text>
+  <text class="peq" x="875" y="308" text-anchor="middle">de trás do carro, olhando</text><text class="peq" x="875" y="326" text-anchor="middle">para a frente. CONFIRME.</text>
+
+  <!-- Bateria -->
+  <rect class="bat" x="440" y="490" width="230" height="80" rx="12"/>
+  <text class="titulo" x="555" y="520">Bateria</text>
+  <text class="peq" x="555" y="545" text-anchor="middle">a do seu kit (confira a faixa do L298N)</text>
+  <path class="vcc" d="M520,490 L520,379"/>
+  <path class="gnd" d="M470,490 L470,479 L420,479 L420,307 L440,307"/>
+  <text class="peq" x="526" y="476">+</text>
+  <text class="peq" x="476" y="476">-</text>
+
+  <!-- Notas -->
+  <rect class="nota" x="30" y="400" width="380" height="220" rx="10"/>
+  <text class="pino" x="44" y="425">Conferências antes de ligar</text>
+  <text class="peq" x="44" y="448">1. Módulo ESP-WROOM-32: GPIO16 e GPIO17 estão livres.</text>
+  <text class="peq" x="44" y="466">   Em módulo WROVER (PSRAM) esses pinos NÃO servem.</text>
+  <text class="peq" x="44" y="490">2. Os 4 pinos são os mesmos do código original do ODIR:</text>
+  <text class="peq" x="44" y="508">   quem já montou o carro não refaz a fiação.</text>
+  <text class="peq" x="44" y="532">3. Nível lógico: o ESP32 entrega 3,3 V nas entradas IN.</text>
+  <text class="peq" x="44" y="550">   Confira no datasheet do L298N o mínimo para "alto".</text>
+  <text class="peq" x="44" y="574">4. Roda girando ao contrário? INVERTER_MOTOR_* no</text>
+  <text class="peq" x="44" y="592">   config_carro.h (o Passo 3 mostra qual).</text>
+</svg>

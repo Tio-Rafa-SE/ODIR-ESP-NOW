@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" role="img" aria-labelledby="t d">
+  <title id="t">Arquitetura do ODIR ESP-NOW 2.0</title>
+  <desc id="d">O controle (joystick ou dois joysticks e ESP32) envia pelo ESP-NOW, sem roteador, acelerador, direção e modo para o carro (ESP32, ponte H L298N e dois motores).</desc>
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f766e"/>
+    </marker>
+    <marker id="setaCinza" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "Helvetica Neue", Arial, sans-serif; fill: #0f172a; }
+    .titulo { font-size: 20px; font-weight: 700; }
+    .nome { font-size: 16px; font-weight: 700; }
+    .sub { font-size: 13px; fill: #334155; }
+    .peq { font-size: 12px; fill: #475569; }
+    .grande { fill: #ffffff; stroke: #0f766e; stroke-width: 2.5; }
+    .caixa { fill: #ecfdf5; stroke: #0f766e; stroke-width: 1.8; }
+    .botao { fill: #fffbeb; stroke: #b45309; stroke-width: 1.8; }
+    .fio { stroke: #475569; stroke-width: 2; fill: none; }
+    .ar { stroke: #0f766e; stroke-width: 3; fill: none; stroke-dasharray: 9 7; }
+  </style>
+  <rect width="960" height="440" fill="#f8fafc"/>
+
+  <!-- CONTROLE -->
+  <rect class="grande" x="30" y="40" width="330" height="370" rx="14"/>
+  <text class="titulo" x="195" y="75" text-anchor="middle">CONTROLE (transmissor)</text>
+  <rect class="caixa" x="60" y="100" width="270" height="80" rx="8"/>
+  <text class="nome" x="195" y="128" text-anchor="middle">1 joystick ou 2 joysticks</text>
+  <text class="sub" x="195" y="150" text-anchor="middle">dois potenciômetros por joystick</text>
+  <text class="sub" x="195" y="167" text-anchor="middle">(só a fiação muda)</text>
+  <path class="fio" d="M195,180 L195,235" marker-end="url(#setaCinza)"/>
+  <text class="peq" x="205" y="205">2 entradas analógicas</text><text class="peq" x="205" y="221">(GPIO32 e GPIO33)</text>
+  <rect class="caixa" x="60" y="235" width="270" height="80" rx="8"/>
+  <text class="nome" x="195" y="263" text-anchor="middle">ESP32</text>
+  <text class="sub" x="195" y="285" text-anchor="middle">mede o centro ao ligar, aplica a zona</text>
+  <text class="sub" x="195" y="302" text-anchor="middle">morta e monta o pacote</text>
+  <rect class="botao" x="60" y="338" width="270" height="55" rx="8"/>
+  <text class="nome" x="195" y="362" text-anchor="middle">Botão SW do joystick</text>
+  <text class="peq" x="195" y="381" text-anchor="middle">troca o modo: DIREÇÕES ou MISTO</text>
+  <path class="fio" d="M195,338 L195,315" marker-end="url(#setaCinza)"/>
+
+  <!-- AR -->
+  <path class="ar" d="M360,275 L600,275" marker-end="url(#seta)"/>
+  <text class="nome" x="480" y="228" text-anchor="middle">ESP-NOW</text>
+  <text class="sub" x="480" y="248" text-anchor="middle">2,4 GHz, sem roteador</text>
+  <text class="sub" x="480" y="310" text-anchor="middle">50 pacotes por segundo</text>
+  <text class="peq" x="480" y="328" text-anchor="middle">7 bytes: acelerador, direção,</text>
+  <text class="peq" x="480" y="344" text-anchor="middle">modo, sequência, checksum</text>
+
+  <!-- CARRO -->
+  <rect class="grande" x="600" y="40" width="330" height="370" rx="14"/>
+  <text class="titulo" x="765" y="75" text-anchor="middle">CARRO (receptor)</text>
+  <rect class="caixa" x="630" y="100" width="270" height="80" rx="8"/>
+  <text class="nome" x="765" y="128" text-anchor="middle">ESP32</text>
+  <text class="sub" x="765" y="150" text-anchor="middle">valida o pacote, mistura os lados,</text>
+  <text class="sub" x="765" y="167" text-anchor="middle">rampa, freio e failsafe de 400 ms</text>
+  <path class="fio" d="M765,180 L765,230" marker-end="url(#setaCinza)"/>
+  <text class="peq" x="775" y="205">4 sinais PWM</text><text class="peq" x="775" y="221">(GPIO16 a GPIO19)</text>
+  <rect class="caixa" x="630" y="230" width="270" height="70" rx="8"/>
+  <text class="nome" x="765" y="258" text-anchor="middle">Ponte H L298N</text>
+  <text class="sub" x="765" y="280" text-anchor="middle">jumpers ENA e ENB instalados</text>
+  <path class="fio" d="M700,300 L700,338" marker-end="url(#setaCinza)"/>
+  <path class="fio" d="M830,300 L830,338" marker-end="url(#setaCinza)"/>
+  <rect class="botao" x="630" y="338" width="130" height="55" rx="8"/>
+  <text class="nome" x="695" y="362" text-anchor="middle">Motor</text>
+  <text class="nome" x="695" y="381" text-anchor="middle">direito</text>
+  <rect class="botao" x="770" y="338" width="130" height="55" rx="8"/>
+  <text class="nome" x="835" y="362" text-anchor="middle">Motor</text>
+  <text class="nome" x="835" y="381" text-anchor="middle">esquerdo</text>
+</svg>
